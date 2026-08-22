@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>STEM Route｜理系のための自学自習塾</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Noto Sans JP",
+        sans-serif;
+      color: #172033;
+      background: #ffffff;
+      line-height: 1.8;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===== Header ===== */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e8edf3;
+      z-index: 1000;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      height: 72px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      color: #102a56;
+    }
+
+    .logo span {
+      color: #2672d8;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 14px;
+      font-weight: 600;
+      color: #4a5568;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: #2672d8;
+    }
+
+    .nav-button {
+      padding: 10px 18px;
+      border-radius: 8px;
+      color: white !important;
+      background: #1769d1;
+    }
+
+    /* ===== Hero ===== */
+
+    .hero {
+      min-height: 720px;
+      padding: 150px 24px 100px;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at 85% 20%, #eaf3ff 0, transparent 30%),
+        linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .hero-label {
+      display: inline-block;
+      padding: 6px 13px;
+      margin-bottom: 22px;
+      border-radius: 999px;
+      background: #e8f2ff;
+      color: #1769d1;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    h1 {
+      font-size: clamp(42px, 5vw, 68px);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: #102a56;
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      color: #1769d1;
+    }
+
+    .hero-text {
+      font-size: 18px;
+      color: #5b6575;
+      max-width: 620px;
+      margin-bottom: 34px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 9px;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .button-primary {
+      background: #1769d1;
+      color: white;
+      box-shadow: 0 8px 20px rgba(23, 105, 209, 0.2);
+    }
+
+    .button-primary:hover {
+      transform: translateY(-2px);
+      background: #0e58b7;
+    }
+
+    .button-secondary {
+      background: white;
+      border: 1px solid #d8e0ea;
+      color: #26364d;
+    }
+
+    .button-secondary:hover {
+      border-color: #1769d1;
+      color: #1769d1;
+    }
+
+    /* Hero visual */
+
+    .hero-card {
+      position: relative;
+      padding: 38px;
+      border-radius: 24px;
+      background: #ffffff;
+      border: 1px solid #e4ebf3;
+      box-shadow: 0 25px 70px rgba(34, 64, 100, 0.12);
+    }
+
+    .hero-card-title {
+      font-size: 14px;
+      color: #718096;
+      margin-bottom: 10px;
+    }
+
+    .route-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: #102a56;
+      margin-bottom: 25px;
+    }
+
+    .route-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 17px;
+    }
+
+    .route-number {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #e8f2ff;
+      color: #1769d1;
+      font-size: 13px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .route-item p {
+      font-weight: 600;
+      color: #39475b;
+    }
+
+    /* ===== Common ===== */
+
+    section {
+      padding: 110px 24px;
+    }
+
+    .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      color: #1769d1;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 38px;
+      line-height: 1.35;
+      color: #102a56;
+      margin-bottom: 20px;
+    }
+
+    .section-description {
+      color: #657184;
+      max-width: 680px;
+    }
+
+    /* ===== About ===== */
+
+    .about {
+      background: #ffffff;
+    }
+
+    .about-content {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .about-card {
+      padding: 35px;
+      border: 1px solid #e5ebf2;
+      border-radius: 16px;
+      background: #ffffff;
+    }
+
+    .about-card h3 {
+      font-size: 20px;
+      color: #102a56;
+      margin-bottom: 12px;
+    }
+
+    .about-card p {
+      color: #647083;
+      font-size: 15px;
+    }
+
+    /* ===== Features ===== */
+
+    .features {
+      background: #f7faff;
+    }
+
+    .feature-grid {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature-card {
+      padding: 32px 27px;
+      background: white;
+      border-radius: 16px;
+      border: 1px solid #e4ebf3;
+    }
+
+    .feature-number {
+      color: #1769d1;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .feature-card h3 {
+      color: #102a56;
+      font-size: 19px;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: #687588;
+      font-size: 14px;
+    }
+
+    /* ===== Target ===== */
+
+    .target {
+      background: white;
+    }
+
+    .target-list {
+      margin-top: 45px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .target-item {
+      padding: 22px 25px;
+      border-radius: 12px;
+      background: #f7faff;
+      border-left: 4px solid #2672d8;
+      color: #39475b;
+      font-weight: 600;
+    }
+
+    /* ===== Price ===== */
+
+    .price {
+      background: #f7faff;
+    }
+
+    .price-card {
+      max-width: 650px;
+      margin: 50px auto 0;
+      padding: 45px;
+      text-align: center;
+      background: white;
+      border: 1px solid #dfe8f2;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(34, 64, 100, 0.08);
+    }
+
+    .price-card h3 {
+      color: #102a56;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .price-number {
+      font-size: 48px;
+      font-weight: 800;
+      color: #1769d1;
+    }
+
+    .price-number small {
+      font-size: 16px;
+      color: #647083;
+    }
+
+    .price-note {
+      margin-top: 15px;
+      color: #788496;
+      font-size: 13px;
+    }
+
+    /* ===== Contact ===== */
+
+    .contact {
+      background: #102a56;
+      color: white;
+      text-align: center;
+    }
+
+    .contact .section-label {
+      color: #8fc0ff;
+    }
+
+    .contact .section-title {
+      color: white;
+    }
+
+    .contact .section-description {
+      color: #c6d3e4;
+      margin: 0 auto 35px;
+    }
+
+    .contact-button {
+      display: inline-block;
+      padding: 15px 30px;
+      border-radius: 9px;
+      background: white;
+      color: #102a56;
+      font-weight: 800;
+      transition: 0.2s;
+    }
+
+    .contact-button:hover {
+      transform: translateY(-2px);
+    }
+
+    /* ===== Footer ===== */
+
+    footer {
+      padding: 30px 24px;
+      background: #0b1d3b;
+      color: #94a5bd;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    /* ===== Mobile ===== */
+
+    @media (max-width: 800px) {
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 130px;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      h1 {
+        font-size: 44px;
+      }
+
+      .hero-text {
+        font-size: 16px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-content,
+      .target-list {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 80px 20px;
+      }
+
+      .section-title {
+        font-size: 30px;
+      }
+
+      .hero-card {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+
+      <a href="#" class="logo">
+        STEM <span>Route</span>
+      </a>
+
+      <nav>
+        <a href="#about">STEM Routeとは</a>
+        <a href="#features">特徴</a>
+        <a href="#target">対象</a>
+        <a href="#price">料金</a>
+        <a href="#contact" class="nav-button">お問い合わせ</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- Hero -->
+  <section class="hero">
+
+    <div class="hero-inner">
+
+      <div>
+
+        <div class="hero-label">
+          理系大学受験 × 自学自習
+        </div>
+
+        <h1>
+          自分で学ぶ。<br>
+          <span>理系の未来へ。</span>
+        </h1>
+
+        <p class="hero-text">
+          STEM Routeは、理系大学受験生のための
+          自学自習型の学習塾です。
+          一人ひとりに合った学習ルートを設計し、
+          志望校合格までの学習を徹底的にサポートします。
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#contact" class="button button-primary">
+            無料相談はこちら
+          </a>
+
+          <a href="#about" class="button button-secondary">
+            STEM Routeについて
+          </a>
+        </div>
+
+      </div>
+
+
+      <div class="hero-card">
+
+        <div class="hero-card-title">
+          YOUR LEARNING ROUTE
+        </div>
+
+        <div class="route-title">
+          合格までの道筋を設計する
+        </div>
+
+        <div class="route-item">
+          <div class="route-number">01</div>
+          <p>現在の学力を分析</p>
+        </div>
+
+        <div class="route-item">
+          <div class="route-number">02</div>
+          <p>最適な参考書・教材を選定</p>
+        </div>
+
+        <div class="route-item">
+          <div class="route-number">03</div>
+          <p>週間学習計画を作成</p>
+        </div>
+
+        <div class="route-item">
+          <div class="route-number">04</div>
+          <p>学習状況を定期的に確認</p>
+        </div>
+
+        <div class="route-item">
+          <div class="route-number">05</div>
+          <p>志望校合格まで改善を続ける</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- About -->
+  <section class="about" id="about">
+
+    <div class="section-inner">
+
+      <div class="section-label">
+        ABOUT
+      </div>
+
+      <h2 class="section-title">
+        STEM Routeとは？
+      </h2>
+
+      <p class="section-description">
+        「授業を受けるだけ」ではなく、
+        自分で学習を進められる力を身につける。
+        STEM Routeは、理系大学受験に特化した
+        自学自習型の学習環境を提供します。
+      </p>
+
+
+      <div class="about-content">
+
+        <div class="about-card">
+          <h3>授業より、学習設計。</h3>
+          <p>
+            何を、いつまでに、どの教材で勉強するのか。
+            志望校と現在の学力から逆算して、
+            一人ひとりの学習ルートを設計します。
+          </p>
+        </div>
+
+        <div class="about-card">
+          <h3>「自分でできる」を目指す。</h3>
+          <p>
+            ただ勉強を管理するだけではありません。
+            最終的には、自分自身で学習計画を立て、
+            改善できる受験生になることを目指します。
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Features -->
+  <section class="features" id="features">
+
+    <div class="section-inner">
+
+      <div class="section-label">
+        FEATURES
+      </div>
+
+      <h2 class="section-title">
+        STEM Routeの特徴
+      </h2>
+
+      <p class="section-description">
+        理系大学受験で重要になる「学習の質」と「継続」を
+        仕組みでサポートします。
+      </p>
+
+
+      <div class="feature-grid">
+
+        <div class="feature-card">
+          <div class="feature-number">01</div>
+          <h3>学習ルート設計</h3>
+          <p>
+            志望校・現在の学力・残り期間から、
+            必要な学習を逆算して計画します。
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-number">02</div>
+          <h3>参考書選定</h3>
+          <p>
+            生徒のレベルや目標に合わせて、
+            使用する参考書や問題集を提案します。
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-number">03</div>
+          <h3>週間計画</h3>
+          <p>
+            長期計画を1週間単位まで落とし込み、
+            毎週の学習を具体化します。
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-number">04</div>
+          <h3>進捗チェック</h3>
+          <p>
+            計画通りに学習できているかを確認し、
+            必要に応じて計画を修正します。
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-number">05</div>
+          <h3>理解度の確認</h3>
+          <p>
+            小テストや確認問題を通して、
+            「やったつもり」を防ぎます。
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-number">06</div>
+          <h3>受験戦略</h3>
+          <p>
+            志望校合格から逆算して、
+            科目ごとの優先順位や学習方針を考えます。
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Target -->
+  <section class="target" id="target">
+
+    <div class="section-inner">
+
+      <div class="section-label">
+        FOR STUDENTS
+      </div>
+
+      <h2 class="section-title">
+        こんな人におすすめ
+      </h2>
+
+      <div class="target-list">
+
+        <div class="target-item">
+          何から勉強すればいいか分からない
+        </div>
+
+        <div class="target-item">
+          参考書選びで迷ってしまう
+        </div>
+
+        <div class="target-item">
+          勉強計画を立てても続かない
+        </div>
+
+        <div class="target-item">
+          理系科目の勉強方法が分からない
+        </div>
+
+        <div class="target-item">
+          自分の現在の学力を正しく把握したい
+        </div>
+
+        <div class="target-item">
+          志望校合格までの道筋を知りたい
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Price -->
+  <section class="price" id="price">
+
+    <div class="section-inner">
+
+      <div class="section-label">
+        PRICE
+      </div>
+
+      <h2 class="section-title">
+        料金
+      </h2>
+
+      <p class="section-description">
+        料金体系は現在準備中です。
+        詳細が決まり次第、こちらでご案内します。
+      </p>
+
+      <div class="price-card">
+
+        <h3>STEM Route</h3>
+
+        <div class="price-number">
+          Coming Soon
+        </div>
+
+        <p class="price-note">
+          詳細はお問い合わせください。
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+
+    <div class="section-inner">
+
+      <div class="section-label">
+        CONTACT
+      </div>
+
+      <h2 class="section-title">
+        まずはお気軽にご相談ください。
+      </h2>
+
+      <p class="section-description">
+        志望校や現在の学習状況について、
+        まずはお話を聞かせてください。
+      </p>
+
+      <a href="#" class="contact-button">
+        お問い合わせはこちら
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- Footer -->
+  <footer>
+    © 2026 STEM Route. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
