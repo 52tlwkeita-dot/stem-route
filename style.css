@@ -1,8 +1,10 @@
-/* ===================================
-   STEM Route ファーストビュー
-=================================== */
+/* =========================================
+   STEM Route - First View
+   style.css
+========================================= */
 
-/* ---------- 基本カラー ---------- */
+
+/* ---------- カラールール ---------- */
 
 :root {
   --navy: #102A43;
@@ -13,6 +15,7 @@
   --teal-light: #E7F5F3;
 
   --blue-gray: #F3F7FA;
+  --blue-gray-2: #EAF0F5;
 
   --text: #243442;
   --sub-text: #647584;
@@ -20,10 +23,18 @@
   --border: #D8E2EA;
 
   --white: #FFFFFF;
+
+  --shadow-soft:
+    0 14px 40px rgba(16, 42, 67, 0.08);
+
+  --shadow-card:
+    0 20px 55px rgba(16, 42, 67, 0.12);
 }
 
 
-/* ---------- 共通 ---------- */
+/* =========================================
+   RESET / BASIC
+========================================= */
 
 * {
   box-sizing: border-box;
@@ -44,56 +55,105 @@ body {
 
   color: var(--text);
 
-  background: #FFFFFF;
+  background: var(--white);
+
+  line-height: 1.8;
+
+  -webkit-font-smoothing: antialiased;
 }
 
 
-/* ===================================
-   HERO
-=================================== */
+a {
+  color: inherit;
+}
+
+
+strong {
+  font-weight: 800;
+}
+
+
+/* =========================================
+   HERO SECTION
+========================================= */
 
 .hero {
   position: relative;
 
+  min-height: 100vh;
+
   overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
 
   background:
     radial-gradient(
-      circle at 90% 10%,
-      rgba(31, 138, 131, 0.10),
+      circle at 88% 12%,
+      rgba(31, 138, 131, 0.13),
       transparent 30%
+    ),
+    radial-gradient(
+      circle at 5% 90%,
+      rgba(16, 42, 67, 0.07),
+      transparent 32%
     ),
     var(--blue-gray);
 }
 
 
-/* 背景の装飾 */
+/* 背景の大きな円 */
 
 .hero::before {
   content: "";
 
   position: absolute;
 
-  width: 420px;
-  height: 420px;
+  width: 440px;
+  height: 440px;
 
-  right: -180px;
-  bottom: -180px;
+  right: -200px;
+  bottom: -220px;
 
-  border: 55px solid rgba(16, 42, 67, 0.035);
+  border: 54px solid rgba(16, 42, 67, 0.035);
 
   border-radius: 50%;
 }
 
 
-/* ---------- 全体レイアウト ---------- */
+/* 背景の青緑アクセント */
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 190px;
+  height: 190px;
+
+  top: 50px;
+  right: 28%;
+
+  background:
+    rgba(31, 138, 131, 0.04);
+
+  border-radius: 50%;
+}
+
+
+/* =========================================
+   HERO CONTAINER
+========================================= */
 
 .hero-container {
   position: relative;
 
-  z-index: 1;
+  z-index: 2;
 
-  max-width: 1120px;
+  width: 100%;
+
+  max-width: 1180px;
 
   margin: 0 auto;
 
@@ -105,8 +165,8 @@ body {
   display: grid;
 
   grid-template-columns:
-    56fr
-    44fr;
+    minmax(0, 1.12fr)
+    minmax(360px, 0.88fr);
 
   gap: 72px;
 
@@ -114,159 +174,253 @@ body {
 }
 
 
-/* ===================================
-   左側
-=================================== */
+/* =========================================
+   LEFT CONTENT
+========================================= */
 
 .hero-content {
-  max-width: 640px;
+  max-width: 650px;
 }
 
 
-/* 小見出し */
+/* ---------- 上部ラベル ---------- */
 
 .hero-label {
-  margin: 0 0 18px;
+  position: relative;
 
-  color: var(--teal);
+  margin:
+    0
+    0
+    20px;
 
-  font-size: 15px;
+  padding-left:
+    38px;
 
-  font-weight: 700;
+  color:
+    var(--teal-dark);
 
-  letter-spacing: 0.08em;
+  font-size:
+    15px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.06em;
 }
 
 
-/* メインキャッチコピー */
+.hero-label::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 50%;
+
+  width: 26px;
+  height: 3px;
+
+  transform:
+    translateY(-50%);
+
+  background:
+    var(--teal);
+
+  border-radius:
+    999px;
+}
+
+
+/* ---------- メイン見出し ---------- */
 
 .hero-title {
   margin: 0;
 
-  color: var(--navy);
+  color:
+    var(--navy);
 
-  font-size: 52px;
+  font-size:
+    clamp(42px, 4.4vw, 58px);
 
-  font-weight: 800;
+  font-weight:
+    800;
 
-  line-height: 1.35;
+  line-height:
+    1.33;
 
-  letter-spacing: -0.03em;
+  letter-spacing:
+    -0.035em;
 }
 
 
-/* 説明 */
+/* 見出し下に細いアクセント線 */
+
+.hero-title::after {
+  content: "";
+
+  display: block;
+
+  width: 72px;
+  height: 5px;
+
+  margin-top:
+    24px;
+
+  background:
+    var(--teal);
+
+  border-radius:
+    999px;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
 
 .hero-description {
-  margin-top: 30px;
+  margin-top:
+    30px;
 
-  font-size: 18px;
+  font-size:
+    18px;
 
-  line-height: 2;
+  line-height:
+    2;
 }
 
 
 .hero-description p {
-  margin: 0;
+  margin:
+    0;
 }
 
 
 .hero-description strong {
-  color: var(--navy);
+  color:
+    var(--navy);
 
-  font-weight: 800;
+  font-weight:
+    800;
+
+  background:
+    linear-gradient(
+      transparent 65%,
+      rgba(31, 138, 131, 0.16) 65%
+    );
 }
 
 
 /* 補足説明 */
 
 .hero-subtext {
-  margin-top: 18px !important;
+  margin-top:
+    18px !important;
 
-  color: var(--sub-text);
+  color:
+    var(--sub-text);
 
-  font-size: 16px;
+  font-size:
+    16px;
 
-  line-height: 1.8;
+  line-height:
+    1.85;
 }
 
 
-/* ===================================
-   ボタン
-=================================== */
+/* =========================================
+   BUTTONS
+========================================= */
 
 .hero-buttons {
-  margin-top: 34px;
+  margin-top:
+    34px;
 
-  display: flex;
+  display:
+    flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  gap: 14px;
+  gap:
+    14px;
 }
 
 
-/* 共通 */
-
 .hero-button {
-  height: 56px;
+  min-height:
+    56px;
 
   padding:
     0
-    32px;
+    30px;
 
-  display: inline-flex;
+  display:
+    inline-flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  justify-content: center;
+  justify-content:
+    center;
 
-  gap: 12px;
+  gap:
+    12px;
 
-  border-radius: 12px;
+  border-radius:
+    12px;
 
-  font-size: 16px;
+  text-decoration:
+    none;
 
-  font-weight: 700;
+  font-size:
+    16px;
 
-  text-decoration: none;
+  font-weight:
+    700;
 
   transition:
     transform 0.2s ease,
+    background 0.2s ease,
     box-shadow 0.2s ease,
-    background 0.2s ease;
+    border-color 0.2s ease;
 }
 
 
-/* メインCTA */
+/* ---------- メインボタン ---------- */
 
 .hero-button-main {
-  color: var(--white);
+  color:
+    var(--white);
 
-  background: var(--navy);
+  background:
+    var(--navy);
 
   box-shadow:
-    0 10px 28px
-    rgba(16, 42, 67, 0.18);
+    0 12px 30px
+    rgba(16, 42, 67, 0.20);
 }
 
 
 .hero-button-main:hover {
-  background: var(--navy-hover);
+  background:
+    var(--navy-hover);
 
   transform:
     translateY(-2px);
 
   box-shadow:
-    0 14px 34px
-    rgba(16, 42, 67, 0.22);
+    0 16px 38px
+    rgba(16, 42, 67, 0.24);
 }
 
 
 /* 矢印 */
 
 .button-arrow {
-  font-size: 20px;
+  font-size:
+    20px;
 
   transition:
     transform 0.2s ease;
@@ -276,251 +430,449 @@ body {
 .hero-button-main:hover
 .button-arrow {
   transform:
-    translateX(4px);
+    translateX(5px);
 }
 
 
-/* サブCTA */
+/* ---------- サブボタン ---------- */
 
 .hero-button-sub {
-  color: var(--navy);
-
-  background: var(--white);
-
-  border:
-    1px solid
-    var(--border);
-}
-
-
-.hero-button-sub:hover {
-  transform:
-    translateY(-2px);
-
-  box-shadow:
-    0 8px 22px
-    rgba(16, 42, 67, 0.08);
-}
-
-
-/* ===================================
-   バッジ
-=================================== */
-
-.hero-badges {
-  margin-top: 24px;
-
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 9px;
-}
-
-
-.hero-badge {
-  padding:
-    7px
-    12px;
-
-  color: var(--teal-dark);
-
-  background: var(--teal-light);
-
-  border-radius: 999px;
-
-  font-size: 13px;
-
-  font-weight: 700;
-
-  line-height: 1.3;
-}
-
-
-/* ===================================
-   右側ビジュアル
-=================================== */
-
-.hero-visual {
-  width: 100%;
-}
-
-
-/* 大きなカード */
-
-.cycle-card {
-  position: relative;
-
-  padding:
-    32px;
+  color:
+    var(--navy);
 
   background:
     var(--white);
 
   border:
     1px solid
-    #E0E8EE;
+    var(--border);
+
+  box-shadow:
+    0 5px 14px
+    rgba(16, 42, 67, 0.04);
+}
+
+
+.hero-button-sub:hover {
+  border-color:
+    #BCCAD5;
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 10px 24px
+    rgba(16, 42, 67, 0.08);
+}
+
+
+/* =========================================
+   BADGES
+========================================= */
+
+.hero-badges {
+  margin-top:
+    24px;
+
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    9px;
+}
+
+
+.hero-badge {
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  padding:
+    7px
+    13px;
+
+  color:
+    var(--teal-dark);
+
+  background:
+    var(--teal-light);
+
+  border:
+    1px solid
+    rgba(31, 138, 131, 0.12);
+
+  border-radius:
+    999px;
+
+  font-size:
+    13px;
+
+  font-weight:
+    700;
+
+  line-height:
+    1.3;
+}
+
+
+/* =========================================
+   RIGHT VISUAL
+========================================= */
+
+.hero-visual {
+  width:
+    100%;
+}
+
+
+/* =========================================
+   CYCLE CARD
+========================================= */
+
+.cycle-card {
+  position:
+    relative;
+
+  overflow:
+    hidden;
+
+  padding:
+    32px;
+
+  background:
+    rgba(255, 255, 255, 0.97);
+
+  border:
+    1px solid
+    #DDE6EC;
 
   border-radius:
     24px;
 
   box-shadow:
-    0 20px 55px
-    rgba(16, 42, 67, 0.10);
+    var(--shadow-card);
 }
 
 
-/* カード上部 */
+/* 上部アクセント */
+
+.cycle-card::before {
+  content: "";
+
+  position:
+    absolute;
+
+  top: 0;
+  left: 0;
+
+  width:
+    100%;
+
+  height:
+    5px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--navy),
+      var(--teal)
+    );
+}
+
+
+/* =========================================
+   CYCLE HEADER
+========================================= */
+
+.cycle-card-header {
+  padding-bottom:
+    22px;
+
+  border-bottom:
+    1px solid
+    var(--border);
+}
+
 
 .cycle-small-title {
-  margin: 0;
+  margin:
+    0;
 
-  color: var(--teal);
+  color:
+    var(--teal-dark);
 
-  font-size: 12px;
+  font-size:
+    12px;
 
-  font-weight: 800;
+  font-weight:
+    800;
 
-  letter-spacing: 0.08em;
+  letter-spacing:
+    0.08em;
 }
 
 
 .cycle-title {
   margin:
-    7px
+    8px
     0
-    24px;
+    0;
 
-  color: var(--navy);
+  color:
+    var(--navy);
 
-  font-size: 21px;
+  font-size:
+    22px;
 
-  line-height: 1.55;
+  line-height:
+    1.55;
 }
 
 
-/* ===================================
-   学習ステップ
-=================================== */
+.cycle-title strong {
+  font-weight:
+    800;
+}
+
+
+/* =========================================
+   STEPS
+========================================= */
 
 .cycle-steps {
-  display: flex;
+  margin-top:
+    24px;
 
-  flex-direction: column;
+  display:
+    flex;
+
+  flex-direction:
+    column;
 }
 
 
-/* 各ステップ */
+/* ---------- 各ステップ ---------- */
 
 .cycle-step {
-  min-height: 62px;
+  min-height:
+    64px;
 
   padding:
     12px
     15px;
 
-  display: flex;
+  display:
+    grid;
 
-  align-items: center;
+  grid-template-columns:
+    40px
+    1fr;
 
-  gap: 14px;
+  gap:
+    14px;
+
+  align-items:
+    center;
 
   background:
     var(--blue-gray);
 
   border:
     1px solid
-    transparent;
+    #E5EBF0;
 
   border-radius:
     12px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 
-/* 数字 */
+.cycle-step:hover {
+  transform:
+    translateX(3px);
+
+  box-shadow:
+    0 7px 18px
+    rgba(16, 42, 67, 0.06);
+}
+
+
+/* =========================================
+   STEP NUMBER
+========================================= */
 
 .step-number {
-  width: 36px;
+  width:
+    38px;
 
-  height: 36px;
+  height:
+    38px;
 
-  flex-shrink: 0;
+  display:
+    flex;
 
-  display: flex;
+  align-items:
+    center;
 
-  align-items: center;
+  justify-content:
+    center;
 
-  justify-content: center;
+  color:
+    var(--white);
 
-  color: var(--white);
+  background:
+    var(--navy);
 
-  background: var(--navy);
+  border-radius:
+    9px;
 
-  border-radius: 9px;
+  font-size:
+    12px;
 
-  font-size: 12px;
-
-  font-weight: 800;
+  font-weight:
+    800;
 }
 
 
-/* テキスト */
+/* =========================================
+   STEP TEXT
+========================================= */
 
 .step-text {
-  display: flex;
+  display:
+    flex;
 
-  flex-direction: column;
+  flex-direction:
+    column;
 
-  gap: 1px;
+  gap:
+    2px;
 }
 
 
 .step-label {
-  color: var(--sub-text);
+  color:
+    var(--sub-text);
 
-  font-size: 10px;
+  font-size:
+    10px;
 
-  font-weight: 800;
+  font-weight:
+    800;
 
-  letter-spacing: 0.12em;
+  letter-spacing:
+    0.13em;
 }
 
 
 .step-text strong {
-  color: var(--navy);
+  color:
+    var(--navy);
 
-  font-size: 15px;
+  font-size:
+    15px;
 
-  line-height: 1.45;
+  font-weight:
+    800;
+
+  line-height:
+    1.4;
 }
 
 
-/* 矢印 */
+/* =========================================
+   STEP ARROW
+========================================= */
 
 .cycle-arrow {
-  height: 22px;
+  height:
+    23px;
 
-  display: flex;
+  display:
+    flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  justify-content: center;
+  justify-content:
+    center;
 
   color:
-    #A4B3C0;
+    #94A7B6;
 
-  font-size: 15px;
+  font-size:
+    15px;
+
+  font-weight:
+    700;
 }
 
 
-/* 小テストだけ強調 */
+/* =========================================
+   HIGHLIGHT STEP
+========================================= */
 
 .cycle-step-highlight {
+  position:
+    relative;
+
   background:
     var(--teal-light);
 
   border-color:
-    rgba(31, 138, 131, 0.22);
+    rgba(31, 138, 131, 0.30);
+
+  box-shadow:
+    0 8px 22px
+    rgba(31, 138, 131, 0.09);
+}
+
+
+.cycle-step-highlight::after {
+  content:
+    "重要";
+
+  position:
+    absolute;
+
+  right:
+    12px;
+
+  top:
+    50%;
+
+  transform:
+    translateY(-50%);
+
+  padding:
+    4px
+    8px;
+
+  color:
+    var(--teal-dark);
+
+  background:
+    var(--white);
+
+  border-radius:
+    999px;
+
+  font-size:
+    10px;
+
+  font-weight:
+    800;
 }
 
 
@@ -545,21 +897,27 @@ body {
 }
 
 
-/* ===================================
-   カード下部メッセージ
-=================================== */
+/* =========================================
+   CYCLE MESSAGE
+========================================= */
 
 .cycle-message {
-  margin-top: 22px;
+  margin-top:
+    22px;
 
   padding:
-    16px;
+    16px
+    18px;
 
   color:
     var(--sub-text);
 
   background:
     #FAFCFD;
+
+  border:
+    1px solid
+    #E9EEF2;
 
   border-radius:
     12px;
@@ -568,7 +926,7 @@ body {
     13px;
 
   line-height:
-    1.7;
+    1.75;
 
   text-align:
     center;
@@ -578,43 +936,65 @@ body {
 .cycle-message strong {
   color:
     var(--navy);
+
+  font-weight:
+    800;
 }
 
 
-/* ===================================
+/* =========================================
    TABLET
-=================================== */
+========================================= */
 
-@media (max-width: 960px) {
+@media (max-width: 1000px) {
 
   .hero-container {
-    gap: 44px;
-
     grid-template-columns:
-      1fr
-      0.85fr;
+      1.05fr
+      0.95fr;
+
+    gap:
+      44px;
   }
 
 
   .hero-title {
     font-size:
-      44px;
+      43px;
+  }
+
+
+  .hero-description {
+    font-size:
+      17px;
+  }
+
+
+  .cycle-card {
+    padding:
+      27px;
   }
 
 }
 
 
-/* ===================================
+/* =========================================
    SMARTPHONE
-=================================== */
+========================================= */
 
 @media (max-width: 767px) {
 
+  .hero {
+    min-height:
+      auto;
+  }
+
+
   .hero-container {
     padding:
-      64px
+      62px
       20px
-      56px;
+      58px;
 
     display:
       flex;
@@ -642,8 +1022,20 @@ body {
     margin-bottom:
       14px;
 
+    padding-left:
+      28px;
+
     font-size:
       13px;
+
+    letter-spacing:
+      0.04em;
+  }
+
+
+  .hero-label::before {
+    width:
+      20px;
   }
 
 
@@ -655,9 +1047,23 @@ body {
       1.4;
 
     letter-spacing:
-      -0.025em;
+      -0.028em;
   }
 
+
+  .hero-title::after {
+    width:
+      52px;
+
+    height:
+      4px;
+
+    margin-top:
+      18px;
+  }
+
+
+  /* ---------- 説明 ---------- */
 
   .hero-description {
     margin-top:
@@ -683,6 +1089,12 @@ body {
   }
 
 
+  .pc-only {
+    display:
+      none;
+  }
+
+
   /* ---------- ボタン ---------- */
 
   .hero-buttons {
@@ -698,12 +1110,16 @@ body {
     width:
       100%;
 
-    height:
+    min-height:
       54px;
+
+    padding:
+      0
+      20px;
   }
 
 
-  /* スマホはCTAを1つに絞る */
+  /* スマホではボタンを1つに */
 
   .hero-button-sub {
     display:
@@ -732,7 +1148,7 @@ body {
   }
 
 
-  /* ---------- 右カード ---------- */
+  /* ---------- カード ---------- */
 
   .hero-visual {
     width:
@@ -742,31 +1158,60 @@ body {
 
   .cycle-card {
     padding:
-      24px
-      18px;
+      25px
+      18px
+      22px;
 
     border-radius:
       20px;
 
     box-shadow:
-      0 16px 40px
-      rgba(16, 42, 67, 0.08);
+      0 16px 38px
+      rgba(16, 42, 67, 0.09);
+  }
+
+
+  .cycle-card-header {
+    padding-bottom:
+      18px;
+  }
+
+
+  .cycle-small-title {
+    font-size:
+      11px;
   }
 
 
   .cycle-title {
     font-size:
       19px;
+
+    line-height:
+      1.6;
+  }
+
+
+  .cycle-steps {
+    margin-top:
+      20px;
   }
 
 
   .cycle-step {
     min-height:
-      58px;
+      60px;
 
     padding:
-      11px
-      13px;
+      10px
+      12px;
+
+    grid-template-columns:
+      36px
+      1fr;
+
+    gap:
+      11px;
   }
 
 
@@ -776,6 +1221,9 @@ body {
 
     height:
       34px;
+
+    font-size:
+      11px;
   }
 
 
@@ -785,18 +1233,59 @@ body {
   }
 
 
+  .step-label {
+    font-size:
+      9px;
+  }
+
+
+  .cycle-arrow {
+    height:
+      21px;
+  }
+
+
+  .cycle-step-highlight::after {
+    display:
+      none;
+  }
+
+
   .cycle-message {
     margin-top:
       18px;
+
+    padding:
+      14px;
 
     font-size:
       12px;
   }
 
+}
 
-  .pc-only {
-    display:
-      none;
+
+/* =========================================
+   VERY SMALL PHONE
+========================================= */
+
+@media (max-width: 380px) {
+
+  .hero-title {
+    font-size:
+      30px;
+  }
+
+
+  .hero-badge {
+    font-size:
+      11px;
+  }
+
+
+  .hero-description {
+    font-size:
+      15px;
   }
 
 }
