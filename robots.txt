@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stem-route.vercel.app/sitemap.xml
