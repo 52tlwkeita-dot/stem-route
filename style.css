@@ -5337,8 +5337,9 @@ summary::after {
 
   .concept-section {
     padding:
-      80px
-      20px;
+      68px
+      20px
+      80px;
   }
 
 
@@ -5354,12 +5355,15 @@ summary::after {
   }
 
 
-  .concept-title {
+  concept-title {
     font-size:
-      28px;
-
+      25px;
     line-height:
-      1.55;
+      1.6;
+    letter-spacing:
+      -0.035em;
+    word-break:
+      keep-all;
   }
 
 
