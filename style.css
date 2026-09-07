@@ -1289,3 +1289,77 @@ strong {
   }
 
 }
+/* =========================================
+   CONCEPT SECTION
+========================================= */
+
+.concept-section {
+  padding: 110px 20px;
+
+  background: #FFFFFF;
+}
+
+.concept-container {
+  width: 100%;
+
+  max-width: 850px;
+
+  margin: 0 auto;
+}
+
+.concept-label {
+  margin: 0 0 14px;
+
+  color: #1F8A83;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+}
+
+.concept-title {
+  margin: 0 0 36px;
+
+  color: #102A43;
+
+  font-size: 40px;
+
+  font-weight: 800;
+
+  line-height: 1.5;
+}
+
+.concept-text {
+  margin: 0 0 22px;
+
+  color: #243442;
+
+  font-size: 18px;
+
+  line-height: 2;
+}
+
+
+/* スマホ */
+
+@media (max-width: 767px) {
+
+  .concept-section {
+    padding: 80px 20px;
+  }
+
+  .concept-title {
+    font-size: 28px;
+
+    line-height: 1.55;
+  }
+
+  .concept-text {
+    font-size: 16px;
+
+    line-height: 1.9;
+  }
+
+}
