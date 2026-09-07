@@ -1363,3 +1363,582 @@ strong {
   }
 
 }
+/* =========================================
+   OUR CONCEPT
+========================================= */
+
+.concept-section {
+  padding: 110px 20px;
+  background: #FFFFFF;
+}
+
+.concept-container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.concept-heading {
+  max-width: 760px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+
+.concept-label {
+  margin: 0 0 12px;
+
+  color: #1F8A83;
+
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.concept-title {
+  margin: 0;
+
+  color: #102A43;
+
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.5;
+
+  letter-spacing: -0.025em;
+}
+
+.concept-lead {
+  margin: 18px 0 0;
+
+  color: #647584;
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   BEFORE / AFTER
+========================================= */
+
+.concept-compare {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    70px
+    minmax(0, 1fr);
+
+  gap: 24px;
+
+  align-items: center;
+}
+
+
+/* 共通カード */
+
+.concept-card {
+  min-height: 390px;
+
+  padding: 34px 32px;
+
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* BEFORE */
+
+.concept-card-before {
+  background: #F3F7FA;
+
+  border:
+    1px solid
+    #D8E2EA;
+}
+
+
+/* AFTER */
+
+.concept-card-after {
+  background: #E7F5F3;
+
+  border:
+    1px solid
+    rgba(31, 138, 131, 0.28);
+
+  box-shadow:
+    0 14px 34px
+    rgba(31, 138, 131, 0.08);
+}
+
+
+/* BEFORE / AFTERラベル */
+
+.concept-card-label {
+  margin: 0 0 12px;
+
+  color: #647584;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+}
+
+.concept-card-after
+.concept-card-label {
+  color: #146B66;
+}
+
+
+/* カード見出し */
+
+.concept-card h3 {
+  margin: 0 0 26px;
+
+  color: #102A43;
+
+  font-size: 23px;
+  font-weight: 800;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   LIST
+========================================= */
+
+.concept-list {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+.concept-list li {
+  position: relative;
+
+  padding:
+    14px
+    15px
+    14px
+    44px;
+
+  color: #243442;
+
+  background: rgba(255, 255, 255, 0.72);
+
+  border-radius: 10px;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+}
+
+
+/* チェックアイコン */
+
+.concept-list li::before {
+  content: "✓";
+
+  position: absolute;
+
+  left: 16px;
+  top: 50%;
+
+  transform:
+    translateY(-50%);
+
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #FFFFFF;
+
+  background: #647584;
+
+  border-radius: 50%;
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+
+/* AFTERだけ青緑 */
+
+.concept-card-after
+.concept-list li::before {
+  background: #1F8A83;
+}
+
+
+/* カード下部 */
+
+.concept-card-bottom {
+  margin: auto 0 0;
+
+  padding-top: 28px;
+
+  color: #526574;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+.concept-card-bottom strong {
+  color: #102A43;
+
+  font-weight: 800;
+}
+
+
+/* =========================================
+   ARROW
+========================================= */
+
+.concept-arrow {
+  width: 54px;
+  height: 54px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #146B66;
+
+  background: #E7F5F3;
+
+  border-radius: 50%;
+
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.arrow-mobile {
+  display: none;
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.concept-message {
+  max-width: 860px;
+
+  margin:
+    64px
+    auto
+    0;
+
+  padding:
+    34px
+    40px;
+
+  color: #FFFFFF;
+
+  background: #102A43;
+
+  border-radius: 18px;
+
+  text-align: center;
+
+  box-shadow:
+    0 14px 34px
+    rgba(16, 42, 67, 0.14);
+}
+
+.concept-message-main {
+  margin: 0;
+
+  font-size: 24px;
+  line-height: 1.7;
+
+  font-weight: 600;
+}
+
+.concept-message-main strong {
+  color: #FFFFFF;
+
+  font-weight: 800;
+}
+
+.concept-message-sub {
+  margin: 16px auto 0;
+
+  max-width: 620px;
+
+  color:
+    rgba(255, 255, 255, 0.72);
+
+  font-size: 14px;
+
+  line-height: 1.9;
+}
+
+
+/* =========================================
+   BODY TEXT
+========================================= */
+
+.concept-body {
+  max-width: 760px;
+
+  margin:
+    54px
+    auto
+    0;
+
+  color: #243442;
+
+  font-size: 17px;
+
+  line-height: 2;
+}
+
+.concept-body p {
+  margin: 0 0 24px;
+}
+
+.concept-body p:last-child {
+  margin-bottom: 0;
+}
+
+.concept-body strong {
+  color: #102A43;
+
+  font-weight: 800;
+
+  background:
+    linear-gradient(
+      transparent 66%,
+      rgba(31, 138, 131, 0.14) 66%
+    );
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .concept-compare {
+    grid-template-columns:
+      minmax(0, 1fr)
+      54px
+      minmax(0, 1fr);
+
+    gap: 16px;
+  }
+
+  .concept-card {
+    padding:
+      28px
+      24px;
+  }
+
+  .concept-card h3 {
+    font-size:
+      21px;
+  }
+
+}
+
+
+/* =========================================
+   SMARTPHONE
+========================================= */
+
+@media (max-width: 767px) {
+
+  .concept-section {
+    padding:
+      80px
+      20px;
+  }
+
+
+  /* 見出し */
+
+  .concept-heading {
+    margin-bottom:
+      38px;
+  }
+
+  .concept-label {
+    font-size:
+      12px;
+  }
+
+  .concept-title {
+    font-size:
+      28px;
+
+    line-height:
+      1.55;
+  }
+
+  .concept-lead {
+    margin-top:
+      14px;
+
+    font-size:
+      14px;
+  }
+
+
+  /* BEFORE AFTER */
+
+  .concept-compare {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+  }
+
+  .concept-card {
+    width: 100%;
+
+    min-height: auto;
+
+    padding:
+      26px
+      20px;
+
+    border-radius:
+      16px;
+  }
+
+  .concept-card h3 {
+    margin-bottom:
+      22px;
+
+    font-size:
+      20px;
+  }
+
+  .concept-list {
+    gap:
+      10px;
+  }
+
+  .concept-list li {
+    padding:
+      13px
+      12px
+      13px
+      41px;
+
+    font-size:
+      14px;
+  }
+
+  .concept-card-bottom {
+    margin-top:
+      24px;
+
+    padding-top:
+      0;
+
+    font-size:
+      15px;
+  }
+
+
+  /* 矢印 */
+
+  .concept-arrow {
+    width:
+      46px;
+
+    height:
+      46px;
+
+    font-size:
+      21px;
+  }
+
+  .arrow-pc {
+    display:
+      none;
+  }
+
+  .arrow-mobile {
+    display:
+      inline;
+  }
+
+
+  /* メッセージ */
+
+  .concept-message {
+    margin-top:
+      44px;
+
+    padding:
+      28px
+      20px;
+
+    border-radius:
+      16px;
+  }
+
+  .concept-message-main {
+    font-size:
+      20px;
+
+    line-height:
+      1.7;
+  }
+
+  .concept-message-sub {
+    margin-top:
+      14px;
+
+    font-size:
+      13px;
+  }
+
+
+  /* 本文 */
+
+  .concept-body {
+    margin-top:
+      40px;
+
+    font-size:
+      15px;
+
+    line-height:
+      1.95;
+  }
+
+  .concept-body p {
+    margin-bottom:
+      20px;
+  }
+
+}
